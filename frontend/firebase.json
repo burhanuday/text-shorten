@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "link-shorten-client-b",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

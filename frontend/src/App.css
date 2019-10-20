@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 7px 13px;
+  border: 1px solid #aaa;
+  margin-top: 4px;
+}
+
+button {
+  background: rgb(0, 160, 175);
+  background: linear-gradient(
+    270deg,
+    rgba(0, 160, 175, 1) 0%,
+    rgba(0, 121, 193, 1) 100%
+  );
+  border: none;
+  width: 120px;
+  padding: 10px 5px;
+  border-radius: 7px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover,
+button:active {
+  background: linear-gradient(
+    270deg,
+    rgba(0, 160, 175, 0.8) 0%,
+    rgba(0, 121, 193, 0.8) 100%
+  );
+}
+
+button:active {
+  transform: scale(0.9, 0.9);
+}
