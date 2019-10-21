@@ -1,9 +1,9 @@
 const express = require("express");
-var cors = require('cors')
+var cors = require("cors");
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 
 app.use(express.static("dist"));
 app.use(express.json());
@@ -19,13 +19,16 @@ app.post("/api/shorten", (req, res) => {
   const numberOfSegments = 6;
   const lengthOfSegment = Math.floor(lengthOfString / numberOfSegments);
   const remainder = lengthOfString % numberOfSegments;
-  const primeNumber = 39;
+  const primeNumber = 19;
 
-  const calculateSegmentSum = segment => {
+  const calculateSegmentSum = (segment, lengthOfSegment) => {
+    console.log("calculate segment sum for");
     let segmentSum = 0;
     for (let j = 0; j < lengthOfSegment; j++) {
       segmentSum += segment.charCodeAt(j);
     }
+
+    console.log("segment sum is", segmentSum);
 
     return segmentSum;
   };
@@ -36,7 +39,7 @@ app.post("/api/shorten", (req, res) => {
       Math.min(lengthOfSegment + lengthOfSegment * i, lengthOfString)
     );
 
-    segmentSum = calculateSegmentSum(segment);
+    segmentSum = calculateSegmentSum(segment, lengthOfSegment);
 
     segmentSum = Math.ceil(segmentSum % primeNumber);
 
@@ -53,7 +56,7 @@ app.post("/api/shorten", (req, res) => {
       lengthOfString
     );
 
-    let remainderSum = calculateSegmentSum(remainderString);
+    let remainderSum = calculateSegmentSum(remainderString, remainder);
     remainderSum = Math.ceil(remainderSum % primeNumber);
 
     if (remainderSum <= 48) {
